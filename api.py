@@ -27,7 +27,11 @@ app = FastAPI(
     description="Retrieval-Augmented Generation API",
     version="1.0.0"
 )
-
+origins = [
+    "http://localhost:8000",          # optional, for local testing
+    "http://localhost:5173",          # Vite dev server (optional)
+    "https://ensam-bot.vercel.app",   # your production frontend
+]
 # Add CORS middleware to allow React frontend
 app.add_middleware(
     CORSMiddleware,
